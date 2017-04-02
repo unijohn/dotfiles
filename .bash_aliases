@@ -2,20 +2,29 @@
 alias cls='clear'
 alias sh-reload='source ~/.bash_aliases'
 
-# Dir Listing
+alias sudo='sudo -H'
+alias su='sudo'
+
+# vim
+alias vi='vim'
+alias svi='sudo vim'
+alias edit='vim'
+
+# Directories
+## Dir Listing
 alias ls='ls -Gp'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lsa='ls -la'
 
-# Dir Management
+## Dir Management
 alias cp='cp -iv'
 alias rm='rm -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 
-## Dir traversing
+## Dir Traversing
 alias ~='cd ~'
 alias ..='cd ..'
 alias .2='cd ../..'
@@ -33,6 +42,14 @@ alias fgrep='fgrep --color=auto'
 
 trash () { command mv "$@" ~/.Trash ; }
 zipd() { zip -r "$1".zip "$1" ; }
+
+# Networking
+alias ping='ping -c 5'
+alias fast-ping='ping -c 100 -s.4'
+
+alias ports='netstat -tulanp'
+
+alias wget='wget -c'
 
 ## Process Management
 alias memHogsTop='top -l 1 -o rsize | head -20'
@@ -54,4 +71,3 @@ g-ci() { git commit -m "$1" ; }
 
 # ssh
 g-keygen-m() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/Users/$2/.ssh/$3" -N "$4" ; }
-
