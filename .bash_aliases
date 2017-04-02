@@ -43,3 +43,4 @@ my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 
 # git
 alias get='git'
+alias git-bash='git clone git@github.com:unijohn/bash_conf.git'
