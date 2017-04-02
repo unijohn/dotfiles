@@ -45,8 +45,13 @@ my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 # git
 alias get='git'
 alias git-bash='git clone git@github.com:unijohn/bash_conf.git'
+alias g-add='git add'
 alias g-pull='git pull origin master'
 alias g-push='git push origin master'
 alias g-amend='git commit --amend'
 
 g-ci() { git commit -m "$1" ; }
+
+# ssh
+g-keygen-m() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/Users/$2/.ssh/$3" -N "$4" ; }
+
