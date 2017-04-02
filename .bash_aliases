@@ -1,5 +1,6 @@
 # QoL
 alias cls='clear'
+alias sh_reload='source ~/.bash_aliases'
 
 # Dir Listing
 alias ls='ls -Gp'
@@ -40,6 +41,5 @@ alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
 
 my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 
-# QoL
-alias sh_reload='source ~/.bash_aliases'
-
+# git
+alias get='git'
