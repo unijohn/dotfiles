@@ -11,6 +11,7 @@ alias lsa='ls -la'
 
 # Dir Management
 alias cp='cp -iv'
+alias rm='rm -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 
