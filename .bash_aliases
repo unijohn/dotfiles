@@ -1,6 +1,6 @@
 # QoL
 alias cls='clear'
-alias sh_reload='source ~/.bash_aliases'
+alias sh-reload='source ~/.bash_aliases'
 
 # Dir Listing
 alias ls='ls -Gp'
@@ -45,3 +45,7 @@ my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 # git
 alias get='git'
 alias git-bash='git clone git@github.com:unijohn/bash_conf.git'
+alias g-pull='git pull origin master'
+alias g-push='git push origin master'
+
+g-ci() { git commit -m "$1" ; }
