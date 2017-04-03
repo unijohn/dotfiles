@@ -62,14 +62,16 @@ my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 
 # git
 alias get='git'
-alias git-bash='git clone git@github.com:unijohn/bash_conf.git'
 alias g-add='git add'
 alias g-pull='git pull origin master'
 alias g-push='git push origin master'
 alias g-amend='git commit --amend'
 alias g-stat='git status'
 
+alias g-agent='eval $(ssh-agent -s)'
+
 g-ci() { git commit -m "$1" ; }
+
 g-setup-upstream() {
   git remote add upstream https://github.com/$1/$2.git ;
 }
