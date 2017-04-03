@@ -1,14 +1,35 @@
 set nocompatible                " break away from old vi compatibility
-filetype off
 
-set encoding=utf-8
-set nu
+filetype on
+syntax on
+
+set background=dark
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
 set clipboard=unnamed
-
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
+set encoding=utf-8
 set expandtab
+set hidden              " Hide buffers when they are abandoned
+set incsearch           " Incremental search
+set list
+set listchars=tab:>-
+set nocompatible
+set noerrorbells
+set nu
+set ruler
+set report=0
+set shiftwidth=2
+set showcmd             " Show (partial) command in status line
+set softtabstop=2
+set tabstop=2
+set t_vb=
+set viminfo=            " don't use or save viminfo files
+set visualbell
+
+
+set ignorecase          " Do case insensitive matching
+set smartcase           " Do smart case matching
 
 highlight BadWhitespace ctermbg=red guibg=red
 set hlsearch
@@ -40,22 +61,23 @@ set foldlevel=99
 nnoremap <space> za
 
 au BufNewFile,BufRead *.py
-  \ set tabstop=4 |
-  \ set softtabstop=4 |
-  \ set shiftwidth=4 |
+  \ set tabstop=3 |
+  \ set softtabstop=3 |
+  \ set shiftwidth=3 |
   \ set textwidth=79 |
   \ set expandtab |
   \ set autoindent |
   \ set fileformat=unix |
   \ match BadWhitespace /^\t\+/ |
-	\ match BadWhitespace /^\s\+$/ 
+  \ match BadWhitespace /^\s\+$/ |
+  \ let python_highlight_all=1
 
 au BufNewFile,BufRead *.js
   \ set tabstop=3 |
   \ set softtabstop=3 |
   \ set shiftwidth=3 |
-	\ match BadWhitespace /^\t\+/ |
-	\ match BadWhitespace /^\s\+$/
+  \ match BadWhitespace /^\t\+/ |
+  \ match BadWhitespace /^\s\+$/
 
 au BufNewFile *.js 
   \ set fileformat=unix |
@@ -67,34 +89,19 @@ au BufNewFile,BufRead *.html
   \ set softtabstop=3 |
   \ set shiftwidth=3 |
   \ match BadWhitespace /^\t\+/ |
-	\ match BadWhitespace /^\s\+$/
+  \ match BadWhitespace /^\s\+$/
 
 au BufNewFile *.html
   \ set filetype=unix |
   \ let b:comment_leader = '<!--'
 
-let python_highlight_all=1
-syntax on
+au BufWritePre * :%s/\s+$//e
 
-set viminfo=            " don't use or save viminfo files
-
-"------ Stuff ------"
-set background=dark
-
-set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
-
-set showcmd             " Show (partial) command in status line.
-set showmatch           " Show matching brackets.
-set ignorecase          " Do case insensitive matching
-set smartcase           " Do smart case matching
-set incsearch           " Incremental search
-set hidden              " Hide buffers when they are abandoned
-
-set noerrorbells
-set visualbell
-set t_vb=
+" Highlight text whose length is over 80 columns
+set colorcolumn=100
+highlight ColorColumn ctermbg=darkred guibg=#330000
+highlight OverLength ctermbg=17 ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 nore ; :
 nore , ;
@@ -103,3 +110,5 @@ map cc :.,$s/^ *//<CR>
 
 noremap <silent> ,cc:<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader, '\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu:<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader, '\/')<CR>//e<CR>:nohlsearch<CR>
+
+autocmd! GUIEnter * set vb t_vb=

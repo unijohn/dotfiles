@@ -74,7 +74,7 @@ g-ci() { git commit -m "$1" ; }
 alias a-list='apt list --installed'
 
 # python
-alias dj-up='source /var/www/python/py-env/django/bin/activate'
+alias dj-up='source /var/www/python/django/.virtualenv/bin/activate'
 
 # vagrant
 alias v-reload='vagrant reload'
