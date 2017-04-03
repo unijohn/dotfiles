@@ -70,7 +70,6 @@ alias g-amend='git commit --amend'
 
 g-ci() { git commit -m "$1" ; }
 
-<<<<<<< HEAD
 # apt
 alias a-list='apt list --installed'
 
@@ -83,7 +82,6 @@ alias v-up='vagrant up'
 alias v-go='vagrant ssh'
 alias v-stat='vagrant status'
 alias v-down='vagrant halt'
-=======
+
 # ssh
 g-keygen-m() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/Users/$2/.ssh/$3" -N "$4" ; }
->>>>>>> f47f1a674369e01952a6f155d98af2b14a7b5391
