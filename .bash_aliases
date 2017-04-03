@@ -70,6 +70,14 @@ alias g-amend='git commit --amend'
 alias g-stat='git status'
 
 g-ci() { git commit -m "$1" ; }
+g-setup-upstream() {
+  git remote add upstream https://github.com/$1/$2.git ;
+}
+g-sync(){
+  git fetch upstream
+  git checkout master
+  git merge upstream/master
+}
 
 # apt
 alias a-list='apt list --installed'
