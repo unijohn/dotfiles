@@ -1,5 +1,6 @@
 # QoL
 alias cls='clear'
+alias quit='exit'
 alias sh-reload='source ~/.bash_aliases'
 
 alias sudo='sudo -H'
@@ -69,5 +70,20 @@ alias g-amend='git commit --amend'
 
 g-ci() { git commit -m "$1" ; }
 
+<<<<<<< HEAD
+# apt
+alias a-list='apt list --installed'
+
+# python
+alias dj-up='source /var/www/python/py-env/django/bin/activate'
+
+# vagrant
+alias v-reload='vagrant reload'
+alias v-up='vagrant up'
+alias v-go='vagrant ssh'
+alias v-stat='vagrant status'
+alias v-down='vagrant halt'
+=======
 # ssh
 g-keygen-m() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/Users/$2/.ssh/$3" -N "$4" ; }
+>>>>>>> f47f1a674369e01952a6f155d98af2b14a7b5391
