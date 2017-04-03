@@ -69,6 +69,7 @@ alias g-amend='git commit --amend'
 alias g-stat='git status'
 
 alias g-agent='eval $(ssh-agent -s)'
+alias g-keyadd='ssh-add ~/.ssh/id_rsa_git'
 
 g-ci() { git commit -m "$1" ; }
 
