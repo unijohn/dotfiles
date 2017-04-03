@@ -67,6 +67,7 @@ alias g-add='git add'
 alias g-pull='git pull origin master'
 alias g-push='git push origin master'
 alias g-amend='git commit --amend'
+alias g-stat='git status'
 
 g-ci() { git commit -m "$1" ; }
 
