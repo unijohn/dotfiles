@@ -1,6 +1,12 @@
 # Revised 2017-04-03_23:18:10
 alias cls='clear'
 alias quit='exit'
+
+alias sudo='sudo -H'
+alias su='sudo'
+
+# bash
+alias ver-alias='head -n 1 ~/.bash_aliases'
 alias sh-reload='source ~/.bash_aliases'
 
 bashStamp() {
@@ -10,9 +16,6 @@ bashStamp() {
   echo "date"
   echo "# Revised $(date +%F_%H:%M:%S)" | cat - "$1" > "$1.tmp" && mv -f "$1.tmp" "$1"
 }
-
-alias sudo='sudo -H'
-alias su='sudo'
 
 # vim
 alias vi='vim'
