@@ -1,8 +1,15 @@
-# 2017/04/03 - 22:57
-# QoL
+# Revised 2017-04-03_23:18:10
 alias cls='clear'
 alias quit='exit'
 alias sh-reload='source ~/.bash_aliases'
+
+bashStamp() {
+  echo "tail"
+  tail -n +2 "$1" > "$1.tmp" && mv -f "$1.tmp" "$1"
+
+  echo "date"
+  echo "# Revised $(date +%F_%H:%M:%S)" | cat - "$1" > "$1.tmp" && mv -f "$1.tmp" "$1"
+}
 
 alias sudo='sudo -H'
 alias su='sudo'
