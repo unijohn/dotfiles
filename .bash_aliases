@@ -85,8 +85,9 @@ g-sync(){
 # apt
 alias a-list='apt list --installed'
 
-# python
-alias dj-up='source /var/www/python/django/.virtualenv/bin/activate'
+# django
+alias py-up='source /var/www/python/django/.virtualenv/bin/activate'
+alias wag-start='python manage.py runserver 0.0.0.0:8000'
 
 # vagrant
 alias v-reload='vagrant reload'
