@@ -1,3 +1,4 @@
+# 2017/04/03 - 22:57
 # QoL
 alias cls='clear'
 alias quit='exit'
