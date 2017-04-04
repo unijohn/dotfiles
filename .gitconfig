@@ -1,31 +1,33 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-name = John Hall
-email = jmhall@gmail.com
+  name = John Hall
+  email = jmhall@gmail.com
 [core]
-excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [alias]
-aa = add -all
-ai = add -i
-##
-pl = pull
-plu = pull -u
-plo = pull origin
-plu = pull upstream
-plom = pull origin master
-plum = pull upstream master
-####
-ps = push
-psf = push -f
-psu = push -u
-pso = push origin
-psao = push --all origin
-psfo = push -f origin
-psuo = push -u origin
-psom = push origin master
-psfom = push -f origin master
-psuom = push -u origin master
-#####
-st = status
-sb = status -s -b
+  aa = add -all
+  ai = add -i
+  ##
+  pl = pull
+  plu = pull -u
+  plo = pull origin
+  plu = pull upstream
+  plom = pull origin master
+  plum = pull upstream master
+  ####
+  ps = push
+  psf = push -f
+  psu = push -u
+  pso = push origin
+  psao = push --all origin
+  psfo = push -f origin
+  psuo = push -u origin
+  psom = push origin master
+  psfom = push -f origin master
+  psuom = push -u origin master
+  #####
+  st = status
+  sb = status -s -b
+[push]
+  default = matching
