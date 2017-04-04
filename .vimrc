@@ -97,11 +97,11 @@ au BufNewFile *.html
 
 au BufWritePre * :%s/\s+$//e
 
-" Highlight text whose length is over 80 columns
+" Highlight text whose length is over 100 columns
 set colorcolumn=100
 highlight ColorColumn ctermbg=darkred guibg=#330000
 highlight OverLength ctermbg=17 ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+match OverLength /\%99v.\+/
 
 nore ; :
 nore , ;
