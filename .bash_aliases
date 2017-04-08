@@ -1,4 +1,4 @@
-# Revised 2017-04-03_23:18:10
+# Revised 2017-04-08_22:40:56
 alias cls='clear'
 alias quit='exit'
 
@@ -99,7 +99,11 @@ alias a-list='apt list --installed'
 # django
 alias py-up='source /var/www/python/django/.virtualenv/bin/activate'
 alias dj-up='py-up'
-alias wag-start='python manage.py runserver 0.0.0.0:8000'
+alias dj-start='python ~/goto/django/wagtest1/manage.py runserver 0.0.0.0:8000'
+
+# wagtail
+wag-init() { wagtail start "$1" ; }
+alias wag-start='dj-start'
 
 # vagrant
 alias v-reload='vagrant reload'
