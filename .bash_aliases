@@ -99,7 +99,14 @@ alias a-list='apt list --installed'
 # django
 alias py-up='source /var/www/python/django/.virtualenv/bin/activate'
 alias dj-up='py-up'
-alias dj-start='python ~/goto/django/wagtest1/manage.py runserver 0.0.0.0:8000'
+
+dj-run() {
+  python "/home/ubuntu/goto/django/$1/manage.py" runserver 0.0.0.0:8000
+}
+
+alias dj-start="dj-run"
+
+# alias dj-start='python ~/goto/django/wagtest1/manage.py runserver 0.0.0.0:8000'
 
 # wagtail
 wag-init() { wagtail start "$1" ; }
