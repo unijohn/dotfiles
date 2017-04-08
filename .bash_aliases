@@ -98,6 +98,7 @@ alias a-list='apt list --installed'
 
 # django
 alias py-up='source /var/www/python/django/.virtualenv/bin/activate'
+alias dj-up='py-up'
 alias wag-start='python manage.py runserver 0.0.0.0:8000'
 
 # vagrant
