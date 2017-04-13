@@ -21,6 +21,7 @@ bashStamp() {
 alias vi='vim'
 alias svi='sudo vim'
 alias edit='vim'
+alias vim-cls='rm ~/.vim/tmp/*.swp'
 
 # Directories
 ## Dir Listing
