@@ -1,4 +1,5 @@
-# Revised 2017-04-17_20:03:37
+# Revised 2017-04-17_21:35:40
+
 alias cls='clear'
 alias quit='exit'
 
@@ -96,6 +97,9 @@ g-sync(){
   git fetch upstream
   git checkout master
   git merge upstream/master
+}
+g-http-to-ssh() {
+  git remote set-url origin git@github.com:$1/$2.git;
 }
 
 # apt
