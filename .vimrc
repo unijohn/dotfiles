@@ -71,6 +71,7 @@ if iCanHazVundle == 0
   echo "... Installing Vundles, please ignore key map error messages"  
   echo ""
   :PluginInstall
+  :q
 endif
 
 call vundle#end()               " required
