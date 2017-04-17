@@ -36,6 +36,7 @@ alias cp='cp -iv'
 alias rm='rm -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'
+alias rmdir='rmdir -v'
 
 ## Dir Traversing
 alias ~='cd ~'
@@ -75,6 +76,9 @@ my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 # git
 alias get='git'
 alias g-add='git add'
+alias g-co='git checkout'
+alias g-cls='git clean'
+alias g-cls-f='git clean -f'
 alias g-pull='git pull origin master'
 alias g-push='git push origin master'
 alias g-amend='git commit --amend'
@@ -122,3 +126,4 @@ alias v-down='vagrant halt'
 
 # ssh
 g-keygen-m() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/Users/$2/.ssh/$3" -N "$4" ; }
+g-keygen-l() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/home/$2/.ssh/$3" -N "$4" ; }
