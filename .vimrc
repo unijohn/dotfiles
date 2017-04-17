@@ -1,3 +1,18 @@
+" Revised 2017-04-17_21:48:24
+
+" Source for this setup:
+" http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme) 
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
+  let iCanHazVundle=0
+endif
+
 set nocompatible                " break away from old vi compatibility
 
 filetype on
@@ -51,6 +66,13 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'alessandroyorba/sidonia'
 
 " All of your Plugins must be added before the following line
+
+if iCanHazVundle == 0
+  echo "... Installing Vundles, please ignore key map error messages"  
+  echo ""
+  :PluginInstall
+endif
+
 call vundle#end()               " required
 filetype plugin indent on       " required
 " Enable folding
