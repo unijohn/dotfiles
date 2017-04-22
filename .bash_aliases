@@ -86,12 +86,13 @@ my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 # git
 alias get='git'
 alias g-add='git add'
-alias g-co='git checkout'
+alias g-amend='git commit --amend'
 alias g-cls='git clean'
 alias g-cls-f='git clean -f'
+alias g-co='git checkout'
+alias g-hard='git reset --hard origin'
 alias g-pull='git pull origin master'
 alias g-push='git push origin master'
-alias g-amend='git commit --amend'
 alias g-stat='git status'
 
 alias g-agent='eval $(ssh-agent -s)'
