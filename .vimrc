@@ -63,7 +63,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'pangloss/vim-javascript'
 Plugin 'indenthtml.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'alessandroyorba/sidonia'
+" Plugin 'alessandroyorba/sidonia' -- no longer available
 
 " All of your Plugins must be added before the following line
 
