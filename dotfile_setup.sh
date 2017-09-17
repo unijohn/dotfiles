@@ -1,4 +1,4 @@
-# Revised 2017-09-17_01:21:06
+# Revised 2017-09-17_02:02:01
 #!/bin/bash
 
 # The goal of this file is to just allow me to clone my git repo
@@ -10,18 +10,27 @@ for file in git/dotfiles/.*; do
 
   file_name=${file##*/}
 
-  if [ "$file_name" != "." -a "$file_name" != ".." ]; then
+# echo ".. $file_name"
+
+  if [ "$file_name" != "." -a "$file_name" != ".." -a "$file_name" != ".git" ]; then
+
+#   echo ".... $file_name"
 
     if [[ -e ~/$file_name ]]; then
       echo "~/$file_name exists"
-      echo "Removing ~/$file_name"
+#     echo "Removing ~/$file_name"
       rm -f ~/"$file_name"
     fi
 
-    echo "Creating symlink for $file_name"
+    printf '%s\n\n' "Creating symlink for $file_name"
     ln -s ~/git/dotfiles/"$file_name" ~/"$file_name"
 
   fi
 
 done
+
+if [[ -e ~/.bash_aliases ]]; then
+  echo "Sourcing new .bash_aliases file"
+  bash --rcfile ~/.bash_aliases
+fi
 
