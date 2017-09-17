@@ -1,4 +1,4 @@
-# LINUX
+# Revised 2017-09-17_01:48:08
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
 
@@ -138,6 +138,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+local.py
 local_settings.py
 
 # Flask stuff:
