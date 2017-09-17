@@ -1,4 +1,4 @@
-# Revised 2017-04-17_21:36:51
+# Revised 2017-09-17_01:30:00
 
 alias cls='clear'
 alias quit='exit'
@@ -94,6 +94,7 @@ alias g-fetch='git fetch origin master'
 alias g-hard='git reset --hard origin'
 alias g-pull='git pull origin master'
 alias g-push='git push origin master'
+alias g-rm='git rm'
 alias g-stat='git status'
 
 alias g-agent='eval $(ssh-agent -s)'
@@ -126,8 +127,6 @@ dj-run() {
 
 alias dj-start="dj-run"
 
-# alias dj-start='python ~/goto/django/wagtest1/manage.py runserver 0.0.0.0:8000'
-
 # wagtail
 wag-init() { wagtail start "$1" ; }
 alias wag-start='dj-start'
@@ -141,4 +140,5 @@ alias v-down='vagrant halt'
 
 # ssh
 g-keygen-m() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/Users/$2/.ssh/$3" -N "$4" ; }
-g-keygen-l() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/home/$2/.ssh/$3" -N "$4" ; }
+g-keygen-l() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/home/$2/.ssh/id_rsa_git" -N "$4" ; }
+g-keygen-vul() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/home/ubuntu/.ssh/id_rsa_git" -N "$4" ; }

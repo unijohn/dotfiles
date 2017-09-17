@@ -42,7 +42,6 @@ set t_vb=
 set viminfo=            " don't use or save viminfo files
 set visualbell
 
-
 set ignorecase          " Do case insensitive matching
 set smartcase           " Do smart case matching
 
