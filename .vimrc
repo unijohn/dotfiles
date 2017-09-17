@@ -4,7 +4,7 @@
 " http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
 
 let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme) 
   echo "Installing Vundle.."
   echo ""
