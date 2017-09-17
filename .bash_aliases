@@ -1,4 +1,5 @@
 # Revised 2017-09-17_01:30:00
+#!/bin/bash
 
 alias cls='clear'
 alias quit='exit'
@@ -8,7 +9,7 @@ alias su='sudo'
 
 # bash
 alias ver-alias='head -n 1 ~/.bash_aliases'
-alias sh-reload='source ~/.bash_aliases'
+alias sh-reload='unalias -a; source ~/.bash_aliases'
 
 bashStamp() {
   echo "tail"
@@ -33,6 +34,7 @@ alias svi='sudo vim'
 alias edit='vim'
 alias vim-cls='rm ~/.vim/tmp/*.swp'
 
+
 # Directories
 ## Dir Listing
 alias ls='ls -Gp'
@@ -41,12 +43,14 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lsa='ls -la'
 
+
 ## Dir Management
 alias cp='cp -iv'
 alias rm='rm -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 alias rmdir='rmdir -v'
+
 
 ## Dir Traversing
 alias ~='cd ~'
@@ -56,32 +60,36 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
+
 alias path='echo -e ${PATH//:/\\n}'
 alias show_options='shopt'
 alias fix_stty='stty sane'
+alias show_exports='export -p'
+
 
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
+
 trash () { command mv "$@" ~/.Trash ; }
 zipd() { zip -r "$1".zip "$1" ; }
 
+
 # Networking
-alias ping='ping -c 5'
 alias fast-ping='ping -c 100 -s.4'
-
+alias ping='ping -c 5'
 alias ports='netstat -tulanp'
-
 alias wget='wget -c'
 
-## Process Management
-alias memHogsTop='top -l 1 -o rsize | head -20'
-alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 
+## Process Management
 alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
+alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
+alias memHogsTop='top -l 1 -o rsize | head -20'
 
 my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
+
 
 # git
 alias get='git'
@@ -114,22 +122,58 @@ g-http-to-ssh() {
   git remote set-url origin git@github.com:$1/$2.git;
 }
 
+
 # apt
-alias a-list='apt list --installed'
+alias apt-list='apt list --installed'
+
 
 # django
-alias py-up='source /var/www/python/django/.virtualenv/bin/activate'
-alias dj-up='py-up'
-
 dj-run() {
   python "/home/ubuntu/goto/django/$1/manage.py" runserver 0.0.0.0:8000
 }
 
 alias dj-start="dj-run"
 
+
 # wagtail
 wag-init() { wagtail start "$1" ; }
 alias wag-start='dj-start'
+
+
+# python / env
+py-default() { 
+  source "/home/ubuntu/.virtualenvs/default/bin/activate"
+}
+
+py-up() {
+
+  venv_dir=$HOME/.virtualenvs
+  venv_def=$venv_dir/default
+  venv_def_on=$venv_def/bin/activate
+
+  [[ -z $1 ]]
+  arg_given=$?
+
+  [[ -d '$venv_def' ]]
+  dir_true=$?
+
+  [[ -f '$venv_def_on' ]]
+  file_true=$?
+
+  if [[ $arg_given = 0 && $dir_true = 1 ]]; then
+    source $venv_def_on
+
+    printf "\nSwitching to default virtual env:  %s\n" $venv_def_on
+    printf "Use 'deactivate' to exit virtual env\n\n"  
+
+    alias py-down="deactivate"
+
+  else
+    printf "No virtual env specified and no default env found:\n"
+    printf "Tried %s ( %d, %d, %d )\n" $venv_def $arg_give $dir_true $file_true
+  fi
+}
+
 
 # vagrant
 alias v-reload='vagrant reload'
@@ -138,7 +182,8 @@ alias v-go='vagrant ssh'
 alias v-stat='vagrant status'
 alias v-down='vagrant halt'
 
+
 # ssh
 g-keygen-m() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/Users/$2/.ssh/$3" -N "$4" ; }
 g-keygen-l() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/home/$2/.ssh/id_rsa_git" -N "$4" ; }
-g-keygen-vul() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/home/ubuntu/.ssh/id_rsa_git" -N "$4" ; }
+g-keygen-vul() { ssh-keygen -t rsa -b 4096 -C "$1" -f "/home/ubuntu/.ssh/id_rsa_git" -N "$2" ; }
