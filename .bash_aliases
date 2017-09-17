@@ -104,9 +104,12 @@ alias g-pull='git pull origin master'
 alias g-push='git push origin master'
 alias g-rm='git rm'
 alias g-stat='git status'
+alias g-ls='git ls-files'
+alias g-lsa='git ls-tree --full-tree -r HEAD'
 
 alias g-agent='eval $(ssh-agent -s)'
 alias g-keyadd='ssh-add ~/.ssh/id_rsa_git'
+alias g-conn='g-agent; g-keyadd'
 
 g-ci() { git commit -m "$1" ; }
 
@@ -160,14 +163,37 @@ py-up() {
   [[ -f '$venv_def_on' ]]
   file_true=$?
 
-  if [[ $arg_given = 0 && $dir_true = 1 ]]; then
-    source $venv_def_on
+  if [[ $arg_given = 0 ]]; then
 
-    printf "\nSwitching to default virtual env:  %s\n" $venv_def_on
-    printf "Use 'deactivate' to exit virtual env\n\n"  
+    [[ -f '$venv_def_on' ]]
+    file_true=$?
 
-    alias py-down="deactivate"
+    if [[ $dir_true = 1 ]]; then
 
+      source $venv_def_on
+
+      printf "\nSwitching to default virtual env:  %s\n" $venv_def_on
+      printf "Use 'py-down' to exit virtual env\n\n"  
+
+      alias py-down="deactivate"
+    fi
+
+  elif [[ $arg_given = 1 ]] ; then
+    venv_def=$venv_dir/$1
+    venv_def_on=$venv_def/bin/activate
+
+    [[ -f '$venv_def' ]]
+    file_true=$?
+
+    if [[ $dir_true = 1 ]]; then
+
+      source $venv_def_on
+
+      printf "\nSwitching to default virtual env:  %s\n" $venv_def_on
+      printf "Use 'py-down' to exit virtual env\n\n"  
+
+      alias py-down="deactivate"
+    fi 
   else
     printf "No virtual env specified and no default env found:\n"
     printf "Tried %s ( %d, %d, %d )\n" $venv_def $arg_give $dir_true $file_true
