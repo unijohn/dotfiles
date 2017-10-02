@@ -85,9 +85,9 @@ set foldlevel=99
 nnoremap <space> za
 
 au BufNewFile,BufRead *.py
-  \ set tabstop=3 |
-  \ set softtabstop=3 |
-  \ set shiftwidth=3 |
+  \ set tabstop=4 |
+  \ set softtabstop=4 |
+  \ set shiftwidth=4 |
   \ set textwidth=79 |
   \ set expandtab |
   \ set autoindent |
@@ -121,6 +121,17 @@ au BufNewFile *.html
 
 au BufWritePre * :%s/\s+$//e
 
+" Syntastic recommended (new user) settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+
 " Highlight text whose length is over 100 columns
 set colorcolumn=100
 highlight ColorColumn ctermbg=darkred guibg=#330000
@@ -136,4 +147,3 @@ noremap <silent> ,cc:<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader, '\/')<C
 noremap <silent> ,cu:<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader, '\/')<CR>//e<CR>:nohlsearch<CR>
 
 autocmd! GUIEnter * set vb t_vb=
-autocmd FileType python compiler pylint
