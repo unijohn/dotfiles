@@ -1,4 +1,4 @@
-# Revised 2017-09-17_01:30:00
+# Revised 2017-09-17_20:13:20
 #!/bin/bash
 
 alias cls='clear'
@@ -131,11 +131,11 @@ alias apt-list='apt list --installed'
 
 
 # django
-dj-run() {
-  python "/home/ubuntu/goto/django/$1/manage.py" runserver 0.0.0.0:8000
+dj-up() {
+  /home/ubuntu/goto/django/manage.py runserver 0:8000
 }
 
-alias dj-start="dj-run"
+alias dj-start="dj-up"
 
 
 # wagtail

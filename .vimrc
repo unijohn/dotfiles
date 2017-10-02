@@ -45,6 +45,8 @@ set visualbell
 set ignorecase          " Do case insensitive matching
 set smartcase           " Do smart case matching
 
+set pastetoggle=<F9>
+
 highlight BadWhitespace ctermbg=red guibg=red
 set hlsearch
 
@@ -134,3 +136,4 @@ noremap <silent> ,cc:<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader, '\/')<C
 noremap <silent> ,cu:<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader, '\/')<CR>//e<CR>:nohlsearch<CR>
 
 autocmd! GUIEnter * set vb t_vb=
+autocmd FileType python compiler pylint
