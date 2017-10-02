@@ -132,8 +132,8 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 
-" Highlight text whose length is over 100 columns
-set colorcolumn=100
+" Highlight text whose length is over 110 columns
+set colorcolumn=110
 highlight ColorColumn ctermbg=darkred guibg=#330000
 highlight OverLength ctermbg=17 ctermfg=white guibg=#592929
 match OverLength /\%99v.\+/
