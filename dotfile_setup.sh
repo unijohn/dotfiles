@@ -29,8 +29,13 @@ for file in git/dotfiles/.*; do
 
 done
 
-if [[ -e ~/.bash_aliases ]]; then
+if [[ -f ~/.bashrc ]]; then
   echo "Sourcing new .bash_aliases file"
-  bash --rcfile ~/.bash_aliases
+  bash --rcfile ~/.bashrc
 fi
+
+# if [[ -f ~/.bash_aliases ]]; then
+#   echo "Sourcing new .bash_aliases file"
+#   bash --rcfile ~/.bash_aliases
+# fi
 
