@@ -57,10 +57,17 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
+# Default Prompt for PS1
    PS1="\u@\[\e[36m\]\h\[\e[m\]:\w: "
-#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+   
+# Dev Prompt for PS1   
+#   PS1="\e[96m(dev)\e[0m \u@\e[0m\e[36m\h\e[0m:\w: "
+
+# Orig. Prompt for PS1
+#   PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
 else
-   dPS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+   PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
