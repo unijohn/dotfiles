@@ -37,7 +37,7 @@ alias vim-cls='rm ~/.vim/tmp/*.swp'
 
 # Directories
 ## Dir Listing
-alias ls='ls -Gp'
+alias ls='ls -Gp  --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
