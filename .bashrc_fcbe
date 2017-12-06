@@ -1,7 +1,5 @@
 
 
-
-
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -23,6 +21,24 @@ else
 fi
 
 unset color_prompt force_color_prompt
+
+# Python-Related Functionality
+
+if [ -e /opt/rh/rh-python35/enable ]; then
+  echo "Enabling Python 3.5"
+  source /opt/rh/python35/enable
+
+
+  export WORKON_HOME=$HOME/.venv
+  export VIRTUALENVWRAPPER_VIRTUALENV=$WORKON_HOME
+
+  export VIRTUALENVWRAPPER_PYTHON=/opt/rh/rh-python35/root/usr/bin/python3  
+
+  # PIP Settings
+  export PIP_REQUIRE_VIRTUALENV=true
+  export PIP_RESPECT_VIRTUALENV=true
+
+fi
 
 # Work-Related Aliases
 alias sudo='sudo su - fcbeadmin'
