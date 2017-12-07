@@ -15,6 +15,12 @@ if [ -x /usr/bin/scl ]; then
   if [ -n $RH_PYTHON ]; then
     echo "* Enabling $RH_PYTHON"
     source scl_source enable "${RH_PYTHON}"
+
+    PYTHON_3="/opt/rh/$RH_PYTHON/root/usr/bin/python"
+
+    if [ ! -x $PYTHON_3 ]; then
+      echo "? Python missing $PYTHON_3"
+    fi
   fi
 fi
 
