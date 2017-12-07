@@ -9,6 +9,17 @@
 mkdir -p ~/.vim/backup
 mkdir -p ~/.vim/tmp
 
+# Ensure git/ssh is setup for future activities
+if [[ ! -e ~/.ssh/config ]]; then
+
+  echo 'Host github.com' >> ~/.ssh/config
+  echo '    User unijohn' >> ~/.ssh/config
+  echo '    IdentityFile ~/.ssh/github_id_rsa' >> ~/.ssh/config
+
+  echo "* Basic .ssh/config file created"
+fi
+
+
 for file in ~/git/dotfiles/.*; do
   [ -e "$file" ] || continue
 
@@ -31,7 +42,7 @@ for file in ~/git/dotfiles/.*; do
 done
 
 if [[ -f ~/.bashrc ]]; then
-  echo "Sourcing new .bashrc file"
+  echo "* Sourcing new .bashrc file"
   bash --rcfile ~/.bashrc
 fi
 
