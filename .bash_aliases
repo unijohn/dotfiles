@@ -10,6 +10,7 @@ alias su='sudo'
 # bash
 alias ver-alias='head -n 1 ~/.bash_aliases'
 alias sh-reload='unalias -a; source ~/.bash_aliases'
+alias sh-level='echo $SHLVL'
 
 bashStamp() {
   echo "tail"
