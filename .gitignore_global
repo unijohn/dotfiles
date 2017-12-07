@@ -11,6 +11,9 @@
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
+# Any local 'secret' settings
+.secret*
+
 ## VIM
 # swap
 [._]*.s[a-v][a-z]
