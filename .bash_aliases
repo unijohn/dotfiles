@@ -1,7 +1,7 @@
 # Revised 2017-09-17_20:13:20
 #!/bin/bash
 
-alias cls='clear'
+alias cls='tput clear'
 alias quit='exit'
 
 alias sudo='sudo -H'
@@ -28,12 +28,16 @@ vimStamp() {
 }
 
 # vim
-if [ -f $(brew --prefix)/bin/vim ]; then
-  alias vi='$(brew --prefix)/bin/vim'
+# MacOS X brew: detect if brew exists on system
+if [ -x /usr/local/bin/brew ]; then
+  if [ -f $(brew --prefix)/bin/vim ]; then
+    alias vi='$(brew --prefix)/bin/vim'
+  else
+    alias vi='vim'
+  fi
 
 else
   alias vi='vim'
-
 fi
 
 alias svi='sudo vim'
@@ -131,7 +135,7 @@ g-http-to-ssh() {
 }
 
 
-# apt
+# Package management
 alias apt-list='apt list --installed'
 
 
