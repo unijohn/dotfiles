@@ -211,12 +211,12 @@ fi
 
 # Includes function definitions.
 if [ -f ~/.bash_functions ]; then
-. ~/.bash_functions
+  . ~/.bash_functions
 fi
 
 # Includes shell options.
 if [ -f ~/.bash_options ]; then
-. ~/.bash_options
+  . ~/.bash_options
 fi
 
 # Includes shell exports
