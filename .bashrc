@@ -93,10 +93,8 @@ case "$OSTYPE" in
       # coreutils version of 'ls'
       if [ -f $(brew --prefix)/opt/coreutils/bin/gls ]; then
         alias ls='gls --color=auto'
-
       else
         alias ls='ls -G -h'
-
       fi
 
       # OSX:  Enable bash_completion (Install by: brew install bash-completion)
@@ -105,6 +103,8 @@ case "$OSTYPE" in
         . $(brew --prefix)/etc/bash_completion
       fi
 
+    else
+      alias ls='ls -G -h'
     fi
 
     # Export platform-specific options.
@@ -119,8 +119,8 @@ case "$OSTYPE" in
 
   bsd*)
     echo "OS Detection:  bsd  ($OSTYPE)"
-
     export LS_OPTIONS='-G'
+
     ;;
 
   # POSIX compatibility layer and Linux environment emulation for Windows
