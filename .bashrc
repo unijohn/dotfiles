@@ -112,7 +112,7 @@ case "$OSTYPE" in
 
     # MacOS X specific aliases.
     if [ -f ~/.bash_aliases_macosx ]; then
-      . ~/.bash_aliases_macos
+      . ~/.bash_aliases_macosx
     fi
 
     ;;
@@ -160,9 +160,7 @@ if [ -n "$check_color_prompt" ]; then
 
   else
     color_prompt=
-
   fi
-
 fi
 
 # set variable identifying the chroot you work in (used in the prompt below)
@@ -185,7 +183,6 @@ if [ "$color_prompt" = yes ]; then
 
 else
    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-
 fi
 
 unset color_prompt check_color_prompt
