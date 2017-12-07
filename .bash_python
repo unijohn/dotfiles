@@ -1,0 +1,20 @@
+# Python-specific functionality for bash
+
+# Virtualenvwrapper-related
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_RESPECT_VIRTUALENV=true
+
+export WORKON_HOME=$HOME/.venvs
+export VIRTUALENVWRAPPER_VIRTUALENV=$WORKON_HOME
+
+# Oracle Linux - Python 3 detection
+if [ -x /usr/bin/scl ]; then
+
+  RH_PYTHON="$(scl -l | grep rh-python*)"
+
+  if [ -n $RH_PYTHON ]; then
+    echo "* Enabling $RH_PYTHON"
+    source scl_source enable "${RH_PYTHON}"
+  fi
+fi
+
