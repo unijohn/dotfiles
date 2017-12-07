@@ -275,7 +275,3 @@ if [ -f ~/.secrets ]; then
   . ~/.secrets
 fi
 
-if [ -f ~/.bashrc_fcbe ]; then
-  echo "File, .bashrc_fcbe, Found"
-  . ~/.bashrc_fcbe
-fi

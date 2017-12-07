@@ -27,9 +27,15 @@ vimStamp() {
   echo "\" Revised $(date +%F_%H:%M:%S)" | cat - "$1" > "$1.tmp" && mv -f "$1.tmp" "$1"
 }
 
-
 # vim
-alias vi='vim'
+if [ -f $(brew --prefix)/bin/vim ]; then
+  alias vi='$(brew --prefix)/bin/vim'
+
+else
+  alias vi='vim'
+
+fi
+
 alias svi='sudo vim'
 alias edit='vim'
 alias vim-cls='rm ~/.vim/tmp/*.swp'
@@ -37,7 +43,6 @@ alias vim-cls='rm ~/.vim/tmp/*.swp'
 
 # Directories
 ## Dir Listing
-alias ls='ls -Gp  --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
