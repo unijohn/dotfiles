@@ -81,8 +81,8 @@ case "$OSTYPE" in
     echo "OS Detection:  darwin (MacOS X)"
 
     # Fixes for illegal byte sequence (http://stackoverflow.com/q/19242275/55075).
-    export LC_ALL=en_GB.UTF-8
-    export LANG=en_GB.UTF-8
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
 
     # Brew path additions
     export PATH="/usr/local/bin:$PATH"
