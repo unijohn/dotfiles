@@ -41,6 +41,6 @@ if [ -e /opt/rh/rh-python35/enable ]; then
 fi
 
 # Work-Related Aliases
-alias sudo='sudo su - fcbeadmin'
-alias su='sudo'
+# alias sudo='sudo su - fcbeadmin'
+# alias su='sudo'
 
