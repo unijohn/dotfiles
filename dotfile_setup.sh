@@ -19,7 +19,6 @@ if [[ ! -e ~/.ssh/config ]]; then
   echo "* Basic .ssh/config file created"
 fi
 
-
 for file in ~/git/dotfiles/.*; do
   [ -e "$file" ] || continue
 
