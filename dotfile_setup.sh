@@ -31,8 +31,7 @@ for file in ~/git/dotfiles/.*; do
 done
 
 if [[ -f ~/.bashrc ]]; then
-  echo "Sourcing new .bash_aliases file"
+  echo "Sourcing new .bashrc file"
   bash --rcfile ~/.bashrc
 fi
-
 
