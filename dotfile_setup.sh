@@ -5,7 +5,11 @@
 # and have this file handle setting up my dotfiles
 # ... also a way to revisit how to do bash scripting
 
-for file in git/dotfiles/.*; do
+# Ensure vim's directories are available
+mkdir -p ~/.vim/backup
+mkdir -p ~/.vim/tmp
+
+for file in ~/git/dotfiles/.*; do
   [ -e "$file" ] || continue
 
   file_name=${file##*/}
@@ -14,11 +18,8 @@ for file in git/dotfiles/.*; do
 
   if [ "$file_name" != "." -a "$file_name" != ".." -a "$file_name" != ".git" ]; then
 
-#   echo ".... $file_name"
-
     if [[ -e ~/$file_name ]]; then
       echo "~/$file_name exists"
-#     echo "Removing ~/$file_name"
       rm -f ~/"$file_name"
     fi
 
@@ -34,8 +35,4 @@ if [[ -f ~/.bashrc ]]; then
   bash --rcfile ~/.bashrc
 fi
 
-# if [[ -f ~/.bash_aliases ]]; then
-#   echo "Sourcing new .bash_aliases file"
-#   bash --rcfile ~/.bash_aliases
-# fi
 
