@@ -10,7 +10,7 @@ export VIRTUALENVWRAPPER_VIRTUALENV=$WORKON_HOME
 # Oracle Linux - Python 3 detection
 if [ -x /usr/bin/scl ]; then
 
-  RH_PYTHON="$(scl -l | grep rh-python*)"
+  RH_PYTHON="$(scl -l | grep rh-python3[1-9])"
 
   if [ -n $RH_PYTHON ]; then
     echo "* Enabling $RH_PYTHON"
