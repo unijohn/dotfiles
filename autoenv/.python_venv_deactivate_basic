@@ -1,4 +1,5 @@
 # Basic python venv - deactivate
+# Influence:  https://www.kormoc.com/2014/03/22/autoenv-and-virtualenv/
 
 BASE_PATH="${HOME}"
 PWD=`pwd`
