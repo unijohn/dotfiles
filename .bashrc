@@ -14,7 +14,7 @@ esac
 unset -f command_not_found_handle
 
 # Remove any pre-existing aliases in case of re-sourcing .bashrc
-$(unalias -a)
+unalias -a
 
 # OS detection to handle different quirks
 case "$OSTYPE" in
