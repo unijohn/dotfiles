@@ -1,10 +1,14 @@
 # Python-specific functionality for bash
 
 # Virtualenvwrapper-related
+# These values will get in the way if pip is needed to install system-wide packages
+# Set to 'false' or empty '' may be required somet times.
+#
+# source: http://docs.python-guide.org/en/latest/dev/pip-virtualenv/
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
 
-export WORKON_HOME=$HOME/.venvs
+export WORKON_HOME=$HOME/.venv
 export VIRTUALENVWRAPPER_VIRTUALENV=$WORKON_HOME
 
 # Oracle Linux - Python 3 detection
@@ -22,5 +26,13 @@ if [ -x /usr/bin/scl ]; then
       echo "? Python missing $PYTHON_3"
     fi
   fi
+fi
+
+# autoenv - Python 3 detection
+# After installing autoenv (system-wide or per-user), create a symlink
+# in the $WORKON_HOME directory [for now]
+if [ -e $WORKON_HOME/activate.sh ]; then
+  echo "* Enabling autoenv"
+  source $WORKON_HOME/activate.sh
 fi
 
