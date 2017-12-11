@@ -5,11 +5,10 @@ BASE_PATH="${HOME}"
 PWD=`pwd`
 
 if [[ "${BASE_PATH}" == "${PWD}" ]]; then
-  # Hide error message is not activated
+  # Hide error message if not activated
   declare -f -F deactivate &>/dev/null
 
   if [[ "${?}" == "0" ]]; then
     deactivate
   fi
 fi
-
