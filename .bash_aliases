@@ -12,7 +12,7 @@ alias ver-alias='head -n 1 ~/.bash_aliases'
 alias sh-reload='unalias -a; source ~/.bash_aliases'
 alias sh-level='echo $SHLVL'
 
-alias env='env | sort'
+alias senv='env | sort'
 
 bashStamp() {
   echo "tail"
