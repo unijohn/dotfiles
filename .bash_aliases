@@ -12,6 +12,8 @@ alias ver-alias='head -n 1 ~/.bash_aliases'
 alias sh-reload='unalias -a; source ~/.bash_aliases'
 alias sh-level='echo $SHLVL'
 
+alias env='env | sort'
+
 bashStamp() {
   echo "tail"
   tail -n +2 "$1" > "$1.tmp" && mv -f "$1.tmp" "$1"

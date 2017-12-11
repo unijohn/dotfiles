@@ -1,0 +1,4 @@
+# Basic python venv - deactivate
+
+echo "* Deactivate .venv/py35env"
+deactivate

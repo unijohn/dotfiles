@@ -32,6 +32,18 @@ fi
 # After installing autoenv (system-wide or per-user), create a symlink
 # in the $WORKON_HOME directory [for now]
 if [ -e $WORKON_HOME/activate.sh ]; then
+  export AUTOENV_HOME=$HOME/.autoenv
+  mkdir -p $AUTOENV_HOME
+
+  export AUTOENV_AUTH_FILE=$AUTOENV_HOME/.autoenv_authorized
+  export AUTOENV_FILENAME=.env
+
+# Current version of the repo doesn't appear to honor/follow this rule
+# as I had expected.  Commenting out for now.
+
+# export AUTOENV_ENV_LEAVE_FILENAME=.env.leave
+# export AUTOENV_ENABLE_LEAVE='yes'
+
   echo "* Enabling autoenv"
   source $WORKON_HOME/activate.sh
 fi
