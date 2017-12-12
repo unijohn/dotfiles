@@ -32,7 +32,7 @@ vimStamp() {
 
 # vim
 # MacOS X brew: detect if brew exists on system
-if [ -x /usr/local/bin/brew ]; then
+if [ -x $(brew --prefix)/bin/brew ]; then
   if [ -f $(brew --prefix)/bin/vim ]; then
     alias vi='$(brew --prefix)/bin/vim'
   else
