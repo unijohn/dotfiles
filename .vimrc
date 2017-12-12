@@ -142,6 +142,9 @@ nore ; :
 nore , ;
 
 map cc :.,$s/^ *//<CR>
+imap <Bs> BACK
+imap <Del> DELETE
+set backspace=indent,eol,start
 
 noremap <silent> ,cc:<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader, '\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu:<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader, '\/')<CR>//e<CR>:nohlsearch<CR>
