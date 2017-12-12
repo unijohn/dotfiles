@@ -1,4 +1,4 @@
-# Revised 2017-09-17_20:13:20
+# Revised 2017-12-12_12:30:32
 #!/bin/bash
 
 alias cls='tput clear'
@@ -9,7 +9,7 @@ alias su='sudo'
 
 # bash
 alias ver-alias='head -n 1 ~/.bash_aliases'
-alias sh-reload='unalias -a; source ~/.bash_aliases'
+alias alias-reload='unalias -a; source ~/.bash_aliases'
 alias sh-level='echo $SHLVL'
 
 alias senv='env | sort'
@@ -139,13 +139,13 @@ g-http-to-ssh() {
 }
 
 
-# Package management
+# Apt Package management
 alias apt-list='apt list --installed'
 
 
 # django
 dj-up() {
-  /home/ubuntu/goto/django/manage.py runserver 0:8000
+  python manage.py runserver 0:8000
 }
 
 alias dj-start="dj-up"
@@ -157,61 +157,10 @@ alias wag-start='dj-start'
 
 
 # python / env
-py-default() { 
-  source "/home/ubuntu/.virtualenvs/default/bin/activate"
-}
-
-py-up() {
-
-  venv_dir=$HOME/.virtualenvs
-  venv_def=$venv_dir/default
-  venv_def_on=$venv_def/bin/activate
-
-  [[ -z $1 ]]
-  arg_given=$?
-
-  [[ -d '$venv_def' ]]
-  dir_true=$?
-
-  [[ -f '$venv_def_on' ]]
-  file_true=$?
-
-  if [[ $arg_given = 0 ]]; then
-
-    [[ -f '$venv_def_on' ]]
-    file_true=$?
-
-    if [[ $dir_true = 1 ]]; then
-
-      source $venv_def_on
-
-      printf "\nSwitching to default virtual env:  %s\n" $venv_def_on
-      printf "Use 'py-down' to exit virtual env\n\n"  
-
-      alias py-down="deactivate"
-    fi
-
-  elif [[ $arg_given = 1 ]] ; then
-    venv_def=$venv_dir/$1
-    venv_def_on=$venv_def/bin/activate
-
-    [[ -f '$venv_def' ]]
-    file_true=$?
-
-    if [[ $dir_true = 1 ]]; then
-
-      source $venv_def_on
-
-      printf "\nSwitching to default virtual env:  %s\n" $venv_def_on
-      printf "Use 'py-down' to exit virtual env\n\n"  
-
-      alias py-down="deactivate"
-    fi 
-  else
-    printf "No virtual env specified and no default env found:\n"
-    printf "Tried %s ( %d, %d, %d )\n" $venv_def $arg_give $dir_true $file_true
-  fi
-}
+# Using autoenv for now to handle this functionality
+# py-default() { 
+#   source "/home/ubuntu/.virtualenvs/default/bin/activate"
+# }
 
 
 # vagrant
