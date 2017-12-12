@@ -84,11 +84,18 @@ case "$OSTYPE" in
     export LC_ALL=en_US.UTF-8
     export LANG=en_US.UTF-8
 
-    # Brew path additions
-    export PATH="/usr/local/bin:$PATH"
+    BREW_PATH="/usr/local"
 
     # MacOS X brew: detect if brew exists on system
-    if [ -x /usr/local/bin/brew ]; then
+    if [ -x "$BREW_PATH/bin/brew" ]; then
+
+      BREW_PATH_CHECK=$(echo $PATH | grep "/usr/local")
+
+      # Brew path additions
+      if [ ! -n "$BREW_PATH_CHECK" ]; then
+        echo "* Adding brew --prefix to PATH"
+        export PATH="$BREW_PATH/bin:$PATH"
+      fi  
 
       # coreutils version of 'ls'
       if [ -f $(brew --prefix)/opt/coreutils/bin/gls ]; then
