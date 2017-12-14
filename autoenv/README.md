@@ -6,6 +6,9 @@
 * `source ~/.bashrc`
 
 ## Setting up environment
-* `ln -s $deactivate ~/$deactivate`
-* `ln -s $activate ~/$python_dir`
+* `ln -s $deactivate ~/.env`
+* `ln -s $activate ~/$python_dir/.env`
+
+( For some reason, I have been unable to get `.env.leave` to work properly.  As a workaround, I am using
+a modified activate script. )
 
