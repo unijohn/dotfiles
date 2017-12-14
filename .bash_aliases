@@ -162,6 +162,10 @@ alias wag-start='dj-start'
 #   source "/home/ubuntu/.virtualenvs/default/bin/activate"
 # }
 
+py-venv(){
+  python3 -m venv ~/.venv
+}
+
 
 # vagrant
 alias v-reload='vagrant reload'
