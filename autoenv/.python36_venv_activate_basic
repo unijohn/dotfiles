@@ -1,0 +1,4 @@
+# Basic python venv - activate
+
+#echo "* Activate .venv/py36env"
+source ~/.venv/py36env/bin/activate
