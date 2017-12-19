@@ -45,6 +45,7 @@ else
 fi
 
 alias svi='sudo vim'
+alias svim='svi'
 alias edit='vim'
 alias vim-cls='rm ~/.vim/tmp/*.swp'
 
@@ -101,8 +102,10 @@ alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
 alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 alias memHogsTop='top -l 1 -o rsize | head -20'
 
-my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
+ps_my() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 
+alias ps_gunicorn='ps aux |grep gunicorn |grep master| grep django_project'
+alias kill_sighup='kill -s SIGHUP'
 
 # git
 alias get='git'
