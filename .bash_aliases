@@ -44,7 +44,7 @@ else
   alias vi='vim'
 fi
 
-alias svi='sudo vim'
+alias svi='sudoedit'
 alias svim='svi'
 alias edit='vim'
 alias vim-cls='rm ~/.vim/tmp/*.swp'
