@@ -5,7 +5,14 @@
 
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
-if !filereadable(vundle_readme) 
+
+let isRoot = 0
+
+if system('echo $EUID') == 0
+  let isRoot = 1
+endif
+
+if !filereadable(vundle_readme) && isRoot == 0
   echo "Installing Vundle.."
   echo ""
   silent !mkdir -p ~/.vim/bundle
@@ -50,36 +57,47 @@ set pastetoggle=<F9>
 highlight BadWhitespace ctermbg=red guibg=red
 set hlsearch
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" No guarantee that these plugins will be available via 'sudoedit' or 'sudo vim'
+if isRoot == 0
+  " set the runtime path to include Vundle and initialize
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
 
-" let VUndle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+  " let VUndle manage Vundle, required
+  Plugin 'gmarik/Vundle.vim'
 
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'pangloss/vim-javascript'
-Plugin 'indenthtml.vim'
-Plugin 'flazz/vim-colorschemes'
-" Plugin 'alessandroyorba/sidonia' -- no longer available
+  Plugin 'tmhedberg/SimpylFold'
+  Plugin 'vim-scripts/indentpython.vim'
+  Plugin 'scrooloose/syntastic'
+  Plugin 'nvie/vim-flake8'
+  Plugin 'pangloss/vim-javascript'
+  Plugin 'indenthtml.vim'
+  Plugin 'flazz/vim-colorschemes'
+  " Plugin 'alessandroyorba/sidonia' -- no longer available
 
-" All of your Plugins must be added before the following line
+  " All of your Plugins must be added before the following line
 
-if iCanHazVundle == 0
-  echo "... Installing Vundles, please ignore key map error messages"  
-  echo ""
-  :PluginInstall
-  :q
+  if iCanHazVundle == 0
+    echo "... Installing Vundles, please ignore key map error messages"  
+    echo ""
+    :PluginInstall
+    :q
+  endif
+
+  call vundle#end()               " required
+
+  filetype plugin indent on       " required
+
+  " Enable folding
+  set foldmethod=indent
+  set foldlevel=99
 endif
 
-call vundle#end()               " required
-filetype plugin indent on       " required
+"filetype plugin indent on       " required
+
 " Enable folding
-set foldmethod=indent
-set foldlevel=99
+"set foldmethod=indent
+"set foldlevel=99
 
 " Enable folding via spacebar
 nnoremap <space> za
